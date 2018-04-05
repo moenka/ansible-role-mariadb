@@ -1,4 +1,11 @@
 # roles/mariadb/defaults/main.yml
+
+#
+# TODO
+# Defaults differ between 5 and 10, need to be defined procedural within playbook
+# Set values to None if differ and overwrite them with defaults when no user config is given.
+#
+
 ---
 
 mariadb_databases: []

@@ -7,6 +7,14 @@
     - "{{ ansible_os_family }}.yml"
   tags: mariadb
 
+- name: set mariadb service name
+  set_fact:
+  mariadb_service: "{{ (mariadb_version|version_compare('10', '>='))|ternary(mariadb_service_modern, mariadb_service_legacy) }}"
+
+- name: set default values for empty version dependent parameters
+  set_fact:
+  # todo: find out version dependent parameters
+
 - include_tasks: install.yml
 - include_tasks: config.yml
 - include_tasks: root-password.yml
